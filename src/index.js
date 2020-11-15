@@ -2,24 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Header extends React.Component {
-    render(){
-        return (
-            <div class="header">
-                <h1>Trading-bot</h1>
-            </div>
-        );
+   class Header extends React.Component {
+    render() {
+      return (
+        <div>
+          <h1>Trading Bot</h1>
+        </div>
+      );
     }
-
-}
-
-class page extends React.Component {
-    render(){
-        <Header />
+  }
+  
+  class Page extends React.Component {
+    render() {
+      return (
+        <div className="page">
+          <div className="header">
+            <Header />
+          </div>
+          
+        </div>
+      );
     }
-}
-
-ReactDOM.render(
-    <page />,
+  }
+  
+  // ========================================
+  
+  ReactDOM.render(
+    <Page />,
     document.getElementById('root')
-);
+  );
+  
