@@ -1,8 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Stocks from 'stocks.js';
 
    class Header extends React.Component {
+    constructor() {
+      super();
+      this.state = { data: [] };
+    }
+  
+    async componentDidMount() {
+    var stocks = new Stocks('L8C77NWX4MSGXC71');
+    
+    var options = {
+      symbol: 'AAPL',
+      interval: 'weekly',
+      amount: 52
+    };
+    
+    var result = await stocks.timeSeries(options);
+    
+    console.log(result);
+    this.setState({ data: result });
+    }
+  
     render() {
       return (
         <div>
@@ -31,4 +52,5 @@ import './index.css';
     <Page />,
     document.getElementById('root')
   );
+  
   
