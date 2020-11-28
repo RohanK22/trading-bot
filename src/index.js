@@ -21,7 +21,8 @@ import './index.css';
   
     async componentDidMount() {
       const apiKey = 'bv184tv48v6p0f6idl20';
-      const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=` + apiKey);
+      const symbol = 'AAPL';
+      const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=` + symbol + `&token=` + apiKey);
       const json = await response.json();
       console.log(json);
       this.setState({ realTimeData: json });
