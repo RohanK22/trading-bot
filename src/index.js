@@ -2,24 +2,40 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-   class Header extends React.Component {
+  class Header extends React.Component {
+    render() {
+      return (
+        <div>
+          <h1>Trading Bot</h1>
+          <br></br>
+        </div>
+      );
+    }
+  }
+
+  class StockView extends React.Component {
     constructor() {
       super();
-      this.state = { data: [] };
+      this.state = { realTimeData: {"c":116.59,"h":117.49,"l":116.22,"o":116.57,"pc":116.03,"t":1606582932} };
     }
   
     async componentDidMount() {
-      const apiKey = 'L8C77NWX4MSGXC71';
-      const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=` + apiKey);
+      const apiKey = 'bv184tv48v6p0f6idl20';
+      const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=` + apiKey);
       const json = await response.json();
       console.log(json);
-      this.setState({ data: json });
+      this.setState({ realTimeData: json });
+      this.update();
+    }
+
+    update() {
+      return this.state.realTimeData.c;
     }
   
     render() {
       return (
         <div>
-          <h1>Trading Bot</h1>
+          APPL  Price: {this.update()}
         </div>
       );
     }
@@ -31,6 +47,7 @@ import './index.css';
         <div className="page">
           <div className="header">
             <Header />
+            <StockView />
           </div>
           
         </div>
