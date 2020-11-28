@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Stocks from 'stocks.js';
 
    class Header extends React.Component {
     constructor() {
@@ -10,18 +9,11 @@ import Stocks from 'stocks.js';
     }
   
     async componentDidMount() {
-    var stocks = new Stocks('L8C77NWX4MSGXC71');
-    
-    var options = {
-      symbol: 'AAPL',
-      interval: 'weekly',
-      amount: 52
-    };
-    
-    var result = await stocks.timeSeries(options);
-    
-    console.log(result);
-    this.setState({ data: result });
+      const apiKey = 'L8C77NWX4MSGXC71';
+      const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=` + apiKey);
+      const json = await response.json();
+      console.log(json);
+      this.setState({ data: json });
     }
   
     render() {
