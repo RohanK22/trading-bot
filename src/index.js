@@ -42,7 +42,7 @@ import './index.css';
     }
   }
   
-  class Chart extends React.Component {
+  class C extends React.Component {
     constructor() {
       super();
       this.state = {};
@@ -68,10 +68,10 @@ import './index.css';
           // Configuration options go here
           options: {}
       });
+      console.log( chart);
     }
 
     render(){
-      //this.showChart();
       return(
         <h2>Graph From chart.js</h2>
         
@@ -87,7 +87,7 @@ import './index.css';
           <div className="header">
             <Header />
             <StockView />
-            <Chart />
+            <C />
           </div>
           
         </div>
