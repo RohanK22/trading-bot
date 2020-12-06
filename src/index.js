@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'chart.js';
-const Chart = require("chart.js");
 
   class Header extends React.Component {
     render() {
@@ -44,14 +42,14 @@ const Chart = require("chart.js");
     }
   }
   
-  class chart extends React.Component {
+  class Chart extends React.Component {
     constructor() {
       super();
       this.state = {};
     }
 
-    showChart(){
-      var ctx = document.getElementById('root').getContext('2d');
+    async componentDidMount() {
+      var ctx = document.getElementById('myChart').getContext('2d');
       var chart = new Chart(ctx, {
           // The type of chart we want to create
           type: 'line',
@@ -73,7 +71,7 @@ const Chart = require("chart.js");
     }
 
     render(){
-      this.showChart();
+      //this.showChart();
       return(
         <h2>Graph From chart.js</h2>
         
@@ -89,7 +87,7 @@ const Chart = require("chart.js");
           <div className="header">
             <Header />
             <StockView />
-            <chart />
+            <Chart />
           </div>
           
         </div>
