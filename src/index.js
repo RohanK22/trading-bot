@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+const Chart = require('chart.js');
 
   class Header extends React.Component {
     render() {
