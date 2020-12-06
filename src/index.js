@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'chart.js';
+const Chart = require("chart.js");
 
   class Header extends React.Component {
     render() {
@@ -42,6 +44,44 @@ import './index.css';
     }
   }
   
+  class chart extends React.Component {
+    constructor() {
+      super();
+      this.state = {};
+    }
+
+    showChart(){
+      var ctx = document.getElementById('root').getContext('2d');
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              datasets: [{
+                  label: 'My First dataset',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 10, 5, 2, 20, 30, 45]
+              }]
+          },
+
+          // Configuration options go here
+          options: {}
+      });
+    }
+
+    render(){
+      this.showChart();
+      return(
+        <h2>Graph From chart.js</h2>
+        
+        
+      );
+    }
+  }
+
   class Page extends React.Component {
     render() {
       return (
@@ -49,6 +89,7 @@ import './index.css';
           <div className="header">
             <Header />
             <StockView />
+            <chart />
           </div>
           
         </div>
