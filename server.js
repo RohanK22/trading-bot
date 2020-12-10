@@ -4,9 +4,9 @@ const app = express();
 
 app.use(express.static('./client/build'));
 
-// app.get('/', (req, res) => {
-//     console.log('Got a get request');
-// });
+app.get('/', (req, res) => {
+  res.sendFile('./client/build/index.html');
+});
 
 const port = process.env.PORT || 1337;
 app.listen(port, () => {
