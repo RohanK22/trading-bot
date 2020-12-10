@@ -2,10 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('./client/build'));
+app.use(express.static('/client/build'));
 
 app.get('/', (req, res) => {
-  res.sendFile('./client/build/index.html');
+  res.sendFile('/client/build/index.html');
   console.log('got a / request');
 });
 
