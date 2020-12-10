@@ -1,6 +1,6 @@
 # Hosted on Heroku
 
-https://rocky-bayou-93679.herokuapp.com/
+https://thetradingbot.herokuapp.com/
 
 # Getting Started with Create React App
 

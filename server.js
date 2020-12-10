@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('../client/build'));
+app.use(express.static('./client/build'));
 
 // app.get('/', (req, res) => {
 //     console.log('Got a get request');
