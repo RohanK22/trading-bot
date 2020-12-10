@@ -6,6 +6,7 @@ app.use(express.static('./client/build'));
 
 app.get('/', (req, res) => {
   res.sendFile('./client/build/index.html');
+  console.log('got a / request');
 });
 
 const port = process.env.PORT || 1337;
