@@ -47,7 +47,9 @@ const unix = require('to-unix-timestamp');
                   borderColor: 'rgb(255, 99, 132)',
                   borderWidth: 1,
                   data: this.state.realTimeData.c,
-                  fill: false
+                  fill: false,
+                  pointBorderColor: '#ffffff',
+                  pointRadius: 3, 
               }]
           },
 
@@ -84,12 +86,12 @@ const unix = require('to-unix-timestamp');
 
           // The data for our dataset
           data: {
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              labels: [],
               datasets: [{
                   label: 'My First dataset',
                   backgroundColor: 'rgb(255, 99, 132)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: [0, 10, 5, 2, 20, 30, 45]
+                  data: []
               }]
           },
 
