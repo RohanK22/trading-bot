@@ -77,7 +77,7 @@ class Stock extends Component {
                 // Configuration options go here
                 options: {},
             });
-        }, 1000);
+        }, 3000);
     }
 
     render() {
