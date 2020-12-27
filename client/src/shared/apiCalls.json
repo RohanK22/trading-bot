@@ -1,0 +1,8 @@
+{
+    "realTime": {
+        "root": "https://finnhub.io/api/v1/quote?",
+        "symbol": "symbol=",
+        "token": "&token="
+    }
+    
+}
