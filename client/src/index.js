@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './components/Header';
+import Stock from './components/Stock';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const Chart = require('chart.js');
 const unix = require('to-unix-timestamp');
@@ -135,7 +136,8 @@ class Page extends React.Component {
             <div className="page">
                 <div className="header">
                     <Header />
-                    <StockView />
+
+                    <Stock name={'Apple'} symbol={'AAPL'} />
                     <C />
                 </div>
             </div>
