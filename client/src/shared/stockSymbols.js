@@ -1,4 +1,4 @@
-[
+let StockInfoArray = [
  {
    "Symbol": "AAIT",
    "Company Name": "iShares MSCI All Country Asia Information Technology Index Fund"
@@ -11867,4 +11867,6 @@
    "Symbol": "ZUMZ",
    "Company Name": "Zumiez Inc."
  }
-]
+];
+
+export default StockInfoArray;

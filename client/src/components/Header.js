@@ -34,7 +34,6 @@ class Header extends React.Component {
             hrsUntil9ForMe = -1000;
         }
         let waitHrs = hrsUntil9ForMe + hrsDiff;
-        console.log(waitHrs);
         if (waitHrs > 0) {
             return <p>NYSE Opens in : {waitHrs} hours</p>;
         } else {
