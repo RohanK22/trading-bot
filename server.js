@@ -3,7 +3,6 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/ping', (req, res) => {
     console.log('got a /ping request');
@@ -11,6 +10,8 @@ app.get('/ping', (req, res) => {
         message: 'Pong',
     });
 });
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 let port = process.env.PORT || 9000;
 app.listen(port, () => {

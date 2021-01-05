@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 
 import {
+    Button,
+    ButtonGroup,
     Card,
     CardBody,
     CardTitle,
@@ -27,7 +29,7 @@ class Stock extends Component {
             previousDayClosePrice: 0.0,
             mic: '', // which stock index it corresponds to
             marketOpen: false,
-            historyPeriod: 'M', // tells react to render one day span of prices by default
+            historyPeriod: 'Y', // tells react to render one day span of prices by default
             historyDay: null,
             historyWeek: null,
             historyMonth: null,
@@ -38,7 +40,7 @@ class Stock extends Component {
         console.log('Created a stock object! ' + this.state.name);
     }
 
-    async makeGraph(canvas) {
+    async makeGraph() {
         let historyLength = this.state.historyPeriod;
         let resolution;
         let startUNIX;
@@ -95,9 +97,11 @@ class Stock extends Component {
                 this.setState({ historyAllTime: jsonResult });
                 break;
         }
+        console.log('lfj;sadfsajdfsajfjdsadfaksjfd');
     }
 
     async componentDidMount() {
+        console.log('Stock Component Mounted!');
         setInterval(async () => {
             // fetch currentPrice from data from the API
             let response = await fetch(
@@ -135,10 +139,12 @@ class Stock extends Component {
                     dataSegment = this.state.historyAllTime;
                     break;
             }
-            let xs = dataSegment.t.map((timeStamp) => {
-                    let d = new Date(timeStamp * 1000);
-                    return d.getHours() + ':' + d.getMinutes();
-                }),
+            let xs = dataSegment.t
+                    ? dataSegment.t.map((timeStamp) => {
+                          let d = new Date(timeStamp);
+                          return d.getHours() + ':' + d.getMinutes();
+                      })
+                    : dataSegment.t,
                 ys = dataSegment.c;
 
             var chart = new Chart(canvas, {
@@ -162,7 +168,7 @@ class Stock extends Component {
                 // Configuration options go here
                 options: {},
             });
-        }, 1000);
+        }, 10000);
     }
 
     render() {
@@ -187,6 +193,54 @@ class Stock extends Component {
                                 <CardTitle tag="h6">
                                     {this.state.symbol}
                                 </CardTitle>
+                            </Col>
+
+                            <Col md="auto">
+                                <ButtonGroup>
+                                    <Button
+                                        onClick={() => {
+                                            this.setState({
+                                                historyPeriod: 'D',
+                                            });
+                                            console.log('State changed!');
+                                        }}
+                                    >
+                                        Day
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            this.setState({
+                                                historyPeriod: 'W',
+                                            });
+
+                                            console.log('State changed!');
+                                        }}
+                                    >
+                                        Week
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            this.setState({
+                                                historyPeriod: 'M',
+                                            });
+
+                                            console.log('State changed!');
+                                        }}
+                                    >
+                                        Month
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            this.setState({
+                                                historyPeriod: 'Y',
+                                            });
+
+                                            console.log('State changed!');
+                                        }}
+                                    >
+                                        Year
+                                    </Button>
+                                </ButtonGroup>
                             </Col>
                         </Row>
                     </Container>
