@@ -1,7 +1,10 @@
 # Overview
 
-Check out the trading dashboard hosted on Heroku at https://thetradingbot.herokuapp.com/
+Check out the trading dashboard hosted on [Heroku](https://thetradingbot.herokuapp.com/).
 We're still researching ways to build a trading bot. Have a look at the LSTM ML models we trained [here](https://colab.research.google.com/drive/1EpqWyXp1eEMEKBf_WQRvDM3jUn-mu_-o?usp=sharing) 
+
+# Screenshot
+![Screenshot](./screenshot.png)
 
 # Getting Started with Create React App
 
